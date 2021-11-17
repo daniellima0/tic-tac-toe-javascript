@@ -1,0 +1,55 @@
+:root {
+	--footerTopMargin: 5rem;
+	--footerHeight: 4rem;
+}
+
+html,
+input,
+button {
+	font-family: 'Public Sans', sans-serif;
+}
+
+main {
+	min-height: calc(100vh - var(--footerTopMargin) - var(--footerHeight));
+}
+
+#gameboard {
+	display: grid;
+	grid-template-columns: repeat(3, 5rem);
+	grid-template-rows: repeat(3, 5rem);
+	gap: 1rem;
+	background-color: aqua;
+}
+
+#players-names {
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	margin: auto;
+	margin-top: var(--footerTopMargin);
+	height: var(--footerHeight);
+	width: max-content;
+	position: relative;
+	font-size: 1.2rem;
+}
+
+footer a {
+	text-decoration: none;
+	color: var(--darkgrey);
+}
+
+footer i {
+	font-size: 1.5rem;
+	margin-left: 0.5rem;
+}
+
+footer a:hover,
+i:hover {
+	color: blue;
+	cursor: pointer;
+}
