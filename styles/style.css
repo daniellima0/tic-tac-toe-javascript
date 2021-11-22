@@ -1,6 +1,7 @@
 :root {
-	--footerTopMargin: 5rem;
+	--footerTopMargin: 0rem;
 	--footerHeight: 4rem;
+	--mainMinHeight: calc(100vh - var(--footerTopMargin) - var(--footerHeight));
 }
 
 html,
@@ -10,22 +11,33 @@ button {
 }
 
 main {
-	min-height: calc(100vh - var(--footerTopMargin) - var(--footerHeight));
+	min-height: var(--mainMinHeight);
+	/* background-color: bisque; */
 }
 
 #gameboard {
 	display: grid;
 	grid-template-columns: repeat(3, 5rem);
 	grid-template-rows: repeat(3, 5rem);
-	gap: 1rem;
-	background-color: aqua;
+	gap: 0.4rem;
+	background-color: #1f1f1f;
+	width: max-content;
+	height: max-content;
+	margin: auto;
+	padding: 0;
+	position: relative;
+	top: calc(var(--mainMinHeight) / 3);
 }
 
-#players-names {
+#gameboard > div {
+	background-color: white;
+}
+
+/* #players-names {
     background-color: pink;
     display: flex;
     flex-direction: row;
-}
+} */
 
 footer {
 	display: flex;
