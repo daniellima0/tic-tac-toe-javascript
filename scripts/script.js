@@ -1,19 +1,36 @@
-const Gameboard = () => {
+'use strict';
+
+const Gameboard = (() => {
 	let gameboard = [
 		['x', 'o', 'x'],
 		['x', 'o', 'x'],
 		['x', 'o', 'x'],
 	];
-	return 0;
-};
+	return { gameboard };
+})();
 
 const Player = () => {
-	return 0;
+	const click = () => {
+
+	};
+	return {click};
 };
 
-let player1 = Player();
-let player2 = Player();
+let topPlayer = Player();
+let bottomPlayer = Player();
 
-const gameFlow = () => {
-	return 0;
-};
+const displayController = (() => {
+	const renderGameboard = () => {};
+	return { renderGameboard };
+})();
+
+let gameboardDiv = document.querySelector("#gameboard");
+
+for (let i = 0; i < 9; i++) {
+	let spotDiv = document.createElement("div");
+	spotDiv.className = "spot";
+	gameboardDiv.append(spotDiv);
+}
+
+let teste = document.querySelector(".spot:nth-child(1)");
+teste.style.backgroundColor = "black";

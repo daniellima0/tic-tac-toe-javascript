@@ -33,12 +33,6 @@ main {
 	background-color: white;
 }
 
-/* #players-names {
-    background-color: pink;
-    display: flex;
-    flex-direction: row;
-} */
-
 footer {
 	display: flex;
 	align-items: center;
