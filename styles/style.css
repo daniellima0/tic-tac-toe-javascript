@@ -30,7 +30,20 @@ main {
 }
 
 #gameboard > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: white;
+}
+
+.x-image {
+	width: 3.2rem;
+	height: 3.2rem;
+}
+
+.o-image {
+	width: 3.4rem;
+	height: 3.4rem;
 }
 
 footer {
