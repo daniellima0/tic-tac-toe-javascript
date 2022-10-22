@@ -30,10 +30,14 @@ main {
 }
 
 #gameboard > div {
+	z-index: 1;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background: no-repeat;
 	background-color: white;
+	background-size: 3.2rem 3.2rem;
+	background-position: 1rem 0.8rem;
 }
 
 .x-image {

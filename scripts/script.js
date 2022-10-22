@@ -1,22 +1,22 @@
 'use strict';
 
-let num = 0;
+// let num = 0;
 
-function convertDecToTer() {
-	let quotient = num / 3;
-	let remainder = num % 3;
-	if (quotient == 0) {
-		return '';
-	} else {
-		return convertDecToTer(quotient + remainder);
-	}
-}
+// function convertDecToTer() {
+// 	let quotient = num / 3;
+// 	let remainder = num % 3;
+// 	if (quotient == 0) {
+// 		return '';
+// 	} else {
+// 		return convertDecToTer(quotient + remainder);
+// 	}
+// }
 
 const Gameboard = (() => {
 	let gameboard = [
-		['x', 'o', 'x'],
-		['x', 'o', 'x'],
-		['x', 'o', 'x'],
+		['', '', ''],
+		['', '', ''],
+		['', '', ''],
 	];
 
 	// maybe put render method in this class
@@ -32,40 +32,49 @@ let topPlayer = Player();
 let bottomPlayer = Player();
 
 const gameFlow = (() => {
-	// maybe put createGameboardDiv and renderGameboard methods as create and render methods on Gameboard class
+	let isXNext = true;
+	let turn = 'x';
 
-	const createGameboardDiv = () => {
+	const alternateTurns = () => {
+		if (isXNext) {
+			turn = 'x';
+			isXNext = false
+		} else {
+			turn = 'o';
+			isXNext = true;
+		}
+	}
+
+	const renderGameboard = () => {
 		let gameboardDiv = document.querySelector('#gameboard');
 
-		for (let i = 0; i < 9; i++) {
-			let spotDiv = document.createElement('div');
-			spotDiv.className = 'spot';
-			console.log(convertDecToTer(0));
-			spotDiv.id = `${0}${0}`;
-			gameboardDiv.append(spotDiv);
+		for (let i = 0; i < 3; i++) {
+			for (let j = 0; j < 3; j++) {
+				let spotDiv = document.createElement('div');
+				spotDiv.className = 'spot';
+				spotDiv.id = `${i}${j}`;
+				spotDiv.addEventListener("click", placeMarker);
+				gameboardDiv.append(spotDiv);
+			}
 		}
 	};
 
-	const renderGameboard = () => {
-		for (let i = 0; i < 3; i++) {
-			for (let j = 0; j < 3; j++) {
-				let square = document.getElementById(`${i}${j}`);
-				let symbol = document.createElement('img');
-				symbol.src = `./assets/${Gameboard.gameboard[i][j]}.png`;
-				symbol.className = `${Gameboard.gameboard[i][j]}-image`;
-				square.append(symbol);
-			}
-		}
+	const placeMarker = e => {
+		let spotDiv = document.getElementById(e.target.id);
+		if (spotDiv.style.backgroundImage) return;
+		spotDiv.style.backgroundImage = `url(../assets/${turn}.png)`;
+		alternateTurns();
 	};
 
 	// const = checkEndOfRound = () => {}
 	// const = checkGameOver = () => {}
 
-	return { renderGameboard, createGameboardDiv };
+	return { renderGameboard };
 })();
 
-gameFlow.createGameboardDiv();
 gameFlow.renderGameboard();
+
+
 
 // let first_space = document.querySelector('.spot:nth-child(1)');
 // let xImg = document.createElement('img');
