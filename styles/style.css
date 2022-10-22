@@ -50,6 +50,13 @@ main {
 	height: 3.4rem;
 }
 
+#result-message{
+	font-size: 1.8rem;
+	position: absolute;
+	left: 32.5rem;
+	bottom: 15rem;
+}
+
 footer {
 	display: flex;
 	align-items: center;
