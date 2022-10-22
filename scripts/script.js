@@ -32,7 +32,7 @@ let topPlayer = Player();
 let bottomPlayer = Player();
 
 const gameFlow = (() => {
-	let isXNext = true;
+	let isXNext = false;
 	let turn = 'x';
 
 	const alternateTurns = () => {
@@ -44,6 +44,10 @@ const gameFlow = (() => {
 			isXNext = true;
 		}
 	}
+
+	const isGameOver = () => { }
+
+	const endGame = () => { }
 
 	const renderGameboard = () => {
 		let gameboardDiv = document.querySelector('#gameboard');
@@ -64,26 +68,10 @@ const gameFlow = (() => {
 		if (spotDiv.style.backgroundImage) return;
 		spotDiv.style.backgroundImage = `url(../assets/${turn}.png)`;
 		alternateTurns();
+		if (isGameOver()) { endGame(); }
 	};
-
-	// const = checkEndOfRound = () => {}
-	// const = checkGameOver = () => {}
 
 	return { renderGameboard };
 })();
 
 gameFlow.renderGameboard();
-
-
-
-// let first_space = document.querySelector('.spot:nth-child(1)');
-// let xImg = document.createElement('img');
-// xImg.src = './assets/x.png';
-// xImg.id = 'x-image';
-// first_space.append(xImg);
-
-// let second_space = document.querySelector('.spot:nth-child(2)');
-// let oImg = document.createElement('img');
-// oImg.src = './assets/o.png';
-// oImg.id = 'o-image';
-// second_space.append(oImg);
