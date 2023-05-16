@@ -34,7 +34,7 @@ const Player = () => {
 	const placeMarker = e => {
 		let spotDiv = document.getElementById(e.target.id);
 		if (spotDiv.style.backgroundImage) return;
-		spotDiv.style.backgroundImage = `url(../assets/${gameFlow.currentTurn}.png)`;
+		spotDiv.style.backgroundImage = `url(./assets/${gameFlow.currentTurn}.png)`;
 		Gameboard.gameboard[e.target.id.slice(0, 1)][e.target.id.slice(1, 2)] = gameFlow.currentTurn;
 		gameFlow.alternateTurns();
 		gameFlow.checkEndOfGame();
